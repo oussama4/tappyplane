@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://assets/background.png" type="Texture" id=1]
 [ext_resource path="res://Background.gd" type="Script" id=2]
+[ext_resource path="res://assets/groundDirt.png" type="Texture" id=3]
 
 [node name="Background" type="ParallaxBackground"]
 scroll_ignore_camera_zoom = true
@@ -12,4 +13,14 @@ motion_mirroring = Vector2( 800, 0 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxLayer"]
 texture = ExtResource( 1 )
+centered = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="ParallaxLayer"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ParallaxLayer/StaticBody2D"]
+polygon = PoolVector2Array( 1.07898, 444.764, 34.079, 443.264, 41.079, 449.264, 89.579, 453.264, 132.579, 442.264, 156.079, 415.764, 249.685, 412.264, 308.185, 435.264, 349.185, 434.764, 372.185, 420.764, 437.685, 420.264, 471.626, 452.214, 510.126, 451.714, 533.626, 461.714, 571.126, 462.214, 596.626, 435.214, 635.626, 431.214, 657.126, 410.714, 745.626, 407.714, 765.074, 433.714, 798.574, 441.714, 798.574, 441.214, 799.574, 479.714, -0.381546, 479.214 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxLayer/StaticBody2D"]
+position = Vector2( 0, 409 )
+texture = ExtResource( 3 )
 centered = false
