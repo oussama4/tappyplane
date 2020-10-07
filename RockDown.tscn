@@ -3,7 +3,9 @@
 [ext_resource path="res://assets/rockDown.png" type="Texture" id=1]
 [ext_resource path="res://Rock.gd" type="Script" id=2]
 
-[node name="RockDown" type="StaticBody2D"]
+[node name="RockDown" type="StaticBody2D" groups=[
+"rocks",
+]]
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
