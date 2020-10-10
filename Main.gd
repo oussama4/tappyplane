@@ -10,6 +10,7 @@ var score = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$PauseScreen.hide()
 	screen_size = get_viewport().size
 	randomize()
 	$RockTimer.start()
@@ -48,3 +49,7 @@ func _on_StarTimer_timeout():
 func _on_star_collected():
 	score += 1000
 	$HUD/Score.text = "Score: %d" % score
+
+
+func _on_Plane_crashed():
+	$PauseScreen.game_over()

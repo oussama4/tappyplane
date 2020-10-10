@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 var speed = 50
 var velocity = Vector2()
+signal crashed
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -26,4 +27,5 @@ func _physics_process(delta):
 	process_input()
 	var collision = move_and_collide(velocity * delta)
 	if collision:
-		print("Game over")
+		emit_signal("crashed")
+		$CollisionShape2D.set_deferred("disabled", true)

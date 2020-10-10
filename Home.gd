@@ -1,7 +1,7 @@
 extends Control
 
 
-export (PackedScene) var StartScene
+export(String, FILE) var StartScenePath
 
 
 # Called when the node enters the scene tree for the first time.
@@ -19,4 +19,4 @@ func _on_ExitButton_pressed():
 
 
 func _on_StartButton_pressed():
-	get_tree().change_scene_to(StartScene)
+	get_tree().change_scene(StartScenePath)
