@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Background.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Main.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://RockDown.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Star.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Plane.tscn" type="PackedScene" id=6]
+[ext_resource path="res://HUD.tscn" type="PackedScene" id=7]
 
 [node name="Main" type="Node"]
 script = ExtResource( 2 )
@@ -23,5 +24,7 @@ wait_time = 2.0
 
 [node name="Plane" parent="." instance=ExtResource( 6 )]
 position = Vector2( 203, 204 )
+
+[node name="HUD" parent="." instance=ExtResource( 7 )]
 [connection signal="timeout" from="RockTimer" to="." method="_on_RockTimer_timeout"]
 [connection signal="timeout" from="StarTimer" to="." method="_on_StarTimer_timeout"]

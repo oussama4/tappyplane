@@ -7,6 +7,7 @@
 radius = 21.0362
 
 [node name="Star" type="Area2D"]
+collision_layer = 2147483649
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]

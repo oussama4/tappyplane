@@ -1,10 +1,7 @@
-extends RigidBody2D
+extends KinematicBody2D
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
+var speed = 50
+var velocity = Vector2()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -12,7 +9,21 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	var impulse = Vector2(0, -10)
+#func _process(delta):
+#	pass
+
+func process_input():
+	velocity = Vector2()
 	if Input.is_action_pressed("ui_up"):
-		apply_central_impulse(impulse)
+		velocity.y -= 1
+		speed = 200
+	else:
+		velocity.y += 1
+		speed = 50
+	velocity = velocity.normalized() * speed
+
+func _physics_process(delta):
+	process_input()
+	var collision = move_and_collide(velocity * delta)
+	if collision:
+		print("Game over")

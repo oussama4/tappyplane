@@ -5,6 +5,7 @@ export (PackedScene) var Rock
 export (PackedScene) var RockDown
 export (PackedScene) var Star
 var screen_size
+var score = 0
 
 
 # Called when the node enters the scene tree for the first time.
@@ -40,4 +41,10 @@ func create_rock():
 func _on_StarTimer_timeout():
 	var star = Star.instance()
 	star.position = Vector2(rand_range(800, 1400), rand_range(100, 300))
+	star.connect("collected", self, "_on_star_collected")
 	add_child(star)
+	
+	
+func _on_star_collected():
+	score += 1000
+	$HUD/Score.text = "Score: %d" % score
