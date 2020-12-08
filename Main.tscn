@@ -28,7 +28,11 @@ position = Vector2( 203, 204 )
 
 [node name="HUD" parent="." instance=ExtResource( 7 )]
 
-[node name="PauseScreen" parent="." instance=ExtResource( 8 )]
+[node name="PauseLayer" type="CanvasLayer" parent="."]
+layer = 10
+
+[node name="PauseScreen" parent="PauseLayer" instance=ExtResource( 8 )]
+visible = false
 HomePath = "res://Home.tscn"
 [connection signal="timeout" from="RockTimer" to="." method="_on_RockTimer_timeout"]
 [connection signal="timeout" from="StarTimer" to="." method="_on_StarTimer_timeout"]
